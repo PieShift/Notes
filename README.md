@@ -1,1 +1,1 @@
-# Notes for JS autotests
+# Notes for JavaScript autotests
