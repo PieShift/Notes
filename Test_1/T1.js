@@ -35,7 +35,18 @@ async function testTaxiResult() {
     const typeOfTransport = await page.$('#from-type-taxi');
     await typeOfTransport.click();
 
-    await page.screenshot({path: 'testTaxiResult.png'});
+    console.log('Ожидание элемента с результатом');
+    await page.waitForSelector('#result-time-price');
+
+    console.log('Получение строки с результатом');
+    const text = await page.$eval('#result-time-price', element => element.textContent);
+
+    console.log('Проверка условия тест-кейса');
+        if (text.startsWith('Такси')) {
+        console.log('Успех. Текст содержит: ' + text);
+    } else {
+          console.log(`Ошибка. Текст не начинается со слова 'Такси'`)
+    }
 
     console.log('Закрытие браузера');
     await browser.close();
