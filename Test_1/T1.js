@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
 const URL_TEST = 'https://qa-routes.praktikum-services.ru/';
 
 async function testTaxiResult() {
-    console.log('Запуск браузера');
+    /// Запуск браузера
     const browser = await puppeteer.launch({headless: false, slowMo: 100});
 
     console.log('Создание новой вкладки в браузере');
